@@ -1,0 +1,55 @@
+{
+  "dependencies": {
+    "@hono/node-server": "^1.2.0",
+    "@playwright/test": "^1.39.0",
+    "hono": "^3.9.2",
+    "openai": "^4.17.3",
+    "playwright-core": "^1.39.0",
+    "zod": "^3.22.4"
+  },
+  "author": {
+    "name": "Luc Gagan",
+    "email": "luc@ray.run",
+    "url": "https://ray.run"
+  },
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://ray.run",
+  "keywords": [
+    "openai",
+    "playwright",
+    "test"
+  ],
+  "release": {
+    "branches": [
+      "main"
+    ]
+  },
+  "types": "./dist/index.d.ts",
+  "name": "auto-playwright",
+  "main": "./dist/index.js",
+  "sideEffects": false,
+  "description": "Automate Playwright tests using ChatGPT.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lucgagan/auto-playwright"
+  },
+  "devDependencies": {
+    "@types/node": "^20.2.5",
+    "prettier": "^2.8.8",
+    "semantic-release": "^21.0.2",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "start": "tsx ./tests/bin/startServer.ts",
+    "build": "tsc --noEmit false",
+    "format": "prettier --write ./src",
+    "lint": "prettier --check ./src",
+    "semantic-release": "semantic-release",
+    "test": "playwright test"
+  },
+  "version": "0.0.0-development"
+}

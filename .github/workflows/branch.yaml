@@ -1,0 +1,22 @@
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: release
+    name: Test
+    steps:
+      - name: setup repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "21"
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run build
+name: test
+on:
+  pull_request:
+    branches:
+      - main

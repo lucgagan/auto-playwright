@@ -139,7 +139,8 @@ export const completeTask = async (
             return getLocator(args.elementId).inputValue();
           },
           name: "locator_inputValue",
-          description: "Returns input.value for the selected <input> or <textarea> or <select> element.",
+          description:
+            "Returns input.value for the selected <input> or <textarea> or <select> element.",
           parse: (args: string) => {
             return z
               .object({
@@ -162,7 +163,7 @@ export const completeTask = async (
 
             return {
               success: true,
-            }
+            };
           },
           name: "locator_fill",
           description: "Set a value to the input field.",

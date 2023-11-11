@@ -107,17 +107,16 @@ const thereAreThreeLinks = await auto("Are there 3 links on the page?", {
 console.log(`"There are 3 links" is a ${thereAreThreeLinks} statement`);
 ```
 
-
 ## Why use Auto Playwright?
 
 Certainly! Here's a rephrased version of the provided content, presented in a markdown table:
 
-| Aspect | Conventional Approach | Testing with Auto Playwright |
-| ------ | --------------------- | ---------------------------- |
-| **Coupling with Markup** | Strongly linked to the application's markup. | Eliminates the use of selectors; actions are determined by the AI assistant at runtime. |
-| **Speed of Implementation** | Slower implementation due to the need for precise code translation for each action. | Rapid test creation using simple, plain text instructions for actions and assertions. |
-| **Handling Complex Scenarios** | Automating complex scenarios is challenging and prone to frequent failures. | Facilitates testing of complex scenarios by focusing on the intended test outcomes. |
-| **Test Writing Timing** | Can only write tests after the complete development of the functionality. | Enables a Test-Driven Development (TDD) approach, allowing test writing concurrent with or before functionality development. |
+| Aspect                         | Conventional Approach                                                               | Testing with Auto Playwright                                                                                                 |
+| ------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Coupling with Markup**       | Strongly linked to the application's markup.                                        | Eliminates the use of selectors; actions are determined by the AI assistant at runtime.                                      |
+| **Speed of Implementation**    | Slower implementation due to the need for precise code translation for each action. | Rapid test creation using simple, plain text instructions for actions and assertions.                                        |
+| **Handling Complex Scenarios** | Automating complex scenarios is challenging and prone to frequent failures.         | Facilitates testing of complex scenarios by focusing on the intended test outcomes.                                          |
+| **Test Writing Timing**        | Can only write tests after the complete development of the functionality.           | Enables a Test-Driven Development (TDD) approach, allowing test writing concurrent with or before functionality development. |
 
 ## Supported Playwright Actions
 
@@ -137,15 +136,103 @@ This library is free. However, there are costs associated with using OpenAI. You
 <details>
   <summary>Example</summary>
 
-  Using https://ray.run/ as an example, the cost of running a test step is approximately $0.01 using GPT-4 Turbo (and $0.001 using GPT-3.5 Turbo).
+Using https://ray.run/ as an example, the cost of running a test step is approximately $0.01 using GPT-4 Turbo (and $0.001 using GPT-3.5 Turbo).
 
-  The low cost is in part because `auto-playwright` uses HTML sanitization to reduce the payload size, e.g. What follows is the payload that would be submitted for https://ray.run/.
+The low cost is in part because `auto-playwright` uses HTML sanitization to reduce the payload size, e.g. What follows is the payload that would be submitted for https://ray.run/.
 
-  Naturally, the price will vary dramatically depending on the payload.
+Naturally, the price will vary dramatically depending on the payload.
 
-  ```html
-  <div class="cYdhWw dKnOgO geGbZz bGoBgk jkEels"><div class="kSmiQp fPSBzf bnYmbW dXscgu xJzwH jTWvec gzBMzy"><h1 class="fwYeZS fwlORb pdjVK bccLBY fsAQjR fyszFl WNJim fzozfU">Learn Playwright</h1><h2 class="cakMWc ptfck bBmAxp hSiiri xJzwS gnfYng jTWvec fzozfU">Resources for learning end-to-end testing using Playwright automation framework</h2><div class="bLTbYS gvHvKe cHEBuD ddgODW jsxhGC kdTEUJ ilCTXp iQHbtH yuxBn ilIXfy gPeiPq ivcdqp isDTsq jyZWmS ivdkBK cERSkX hdAwi ezvbLT jNrAaV jsxhGJ fzozCb"></div></div><div class="cYdhWw dpjphg cqUdSC fasMpP"><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/blog"><div class="plfYl bccLBY hSiiri fNBpvX">Blog</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Learn in depth subjects about end-to-end testing.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/ask"><div class="plfYl bccLBY hSiiri fNBpvX">Ask AI</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Ask ChatGPT Playwright questions.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/tools"><div class="plfYl bccLBY hSiiri fNBpvX">Dev Tools</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>All-in-one toolbox for QA engineers.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/jobs"><div class="plfYl bccLBY hSiiri fNBpvX">QA Jobs</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Handpicked QA and Automation opportunities.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/questions"><div class="plfYl bccLBY hSiiri fNBpvX">Questions</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Ask AI answered questions about Playwright.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/discord-forum"><div class="plfYl bccLBY hSiiri fNBpvX">Discord Forum</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Archive of Discord Forum posts about Playwright.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/videos"><div class="plfYl bccLBY hSiiri fNBpvX">Videos</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Tutorials, conference talks, and release videos.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/browser-extension"><div class="plfYl bccLBY hSiiri fNBpvX">Browser Extension</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>GUI for generating Playwright locators.</p></div></a><a class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group" href="/wiki"><div class="plfYl bccLBY hSiiri fNBpvX">QA Wiki</div><div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu"><p>Definitions of common end-to-end testing terms.</p></div></a></div><div class="kSmiQp fPSBzf pKTba eTDpsp legDhJ hSiiri hdaZLM jTWvec gzBMzy bGySga fzoybr"><p class="dXhlDK leOtqz glpWRZ fNCcFz">Use <kbd class="bWhrAL XAzZz cakMWc bUyOMB bmOrOm fyszFl dTmriP">⌘</kbd> + <kbd>k</kbd> + "Tools" to quickly access all tools.</p></div></div>
-  ```
+```html
+<div class="cYdhWw dKnOgO geGbZz bGoBgk jkEels">
+  <div class="kSmiQp fPSBzf bnYmbW dXscgu xJzwH jTWvec gzBMzy">
+    <h1 class="fwYeZS fwlORb pdjVK bccLBY fsAQjR fyszFl WNJim fzozfU">
+      Learn Playwright
+    </h1>
+    <h2 class="cakMWc ptfck bBmAxp hSiiri xJzwS gnfYng jTWvec fzozfU">
+      Resources for learning end-to-end testing using Playwright automation
+      framework
+    </h2>
+    <div
+      class="bLTbYS gvHvKe cHEBuD ddgODW jsxhGC kdTEUJ ilCTXp iQHbtH yuxBn ilIXfy gPeiPq ivcdqp isDTsq jyZWmS ivdkBK cERSkX hdAwi ezvbLT jNrAaV jsxhGJ fzozCb"
+    ></div>
+  </div>
+  <div class="cYdhWw dpjphg cqUdSC fasMpP">
+    <a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/blog"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Blog</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Learn in depth subjects about end-to-end testing.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/ask"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Ask AI</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Ask ChatGPT Playwright questions.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/tools"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Dev Tools</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>All-in-one toolbox for QA engineers.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/jobs"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">QA Jobs</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Handpicked QA and Automation opportunities.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/questions"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Questions</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Ask AI answered questions about Playwright.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/discord-forum"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Discord Forum</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Archive of Discord Forum posts about Playwright.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/videos"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Videos</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Tutorials, conference talks, and release videos.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/browser-extension"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">Browser Extension</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>GUI for generating Playwright locators.</p>
+      </div></a
+    ><a
+      class="gacSWM dCgFix conipm knkqUc bddCnd dTKJOB leOtqz hEzNkW fNBBKe jTWvec fIMbrO fzozfU group"
+      href="/wiki"
+      ><div class="plfYl bccLBY hSiiri fNBpvX">QA Wiki</div>
+      <div class="jqqjPD fWDXZB pKTba bBmAxp hSiiri evbPEu">
+        <p>Definitions of common end-to-end testing terms.</p>
+      </div></a
+    >
+  </div>
+  <div
+    class="kSmiQp fPSBzf pKTba eTDpsp legDhJ hSiiri hdaZLM jTWvec gzBMzy bGySga fzoybr"
+  >
+    <p class="dXhlDK leOtqz glpWRZ fNCcFz">
+      Use <kbd class="bWhrAL XAzZz cakMWc bUyOMB bmOrOm fyszFl dTmriP">⌘</kbd> +
+      <kbd>k</kbd> + "Tools" to quickly access all tools.
+    </p>
+  </div>
+</div>
+```
+
 </details>
 
 ## Implementation

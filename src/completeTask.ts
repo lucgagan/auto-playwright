@@ -159,6 +159,30 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            await getLocator(args.elementId).clear();
+
+            return { success: true };
+          },
+          name: "locator_clear",
+          description: "Clear the input field.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             await getLocator(args.elementId).click();
 
             return { success: true };

@@ -44,24 +44,13 @@ test("asserts (negative)", async ({ page }) => {
 test("executes query, action and assertion", async ({ page }) => {
   await page.goto("/");
 
-  const headerText = await auto(
-    "get the header text",
-    { page, test },
-    { debug: true }
-  );
+  const headerText = await auto("get the header text", { page, test });
 
-  await auto(
-    `type "${headerText}" in the search box`,
-    { page, test },
-    { debug: true }
-  );
-
-  await page.pause();
+  await auto(`type "${headerText}" in the search box`, { page, test });
 
   const searchInputHasHeaderText = await auto(
     `is the contents of the search box equal to "${headerText}"?`,
-    { page, test },
-    { debug: true }
+    { page, test }
   );
 
   expect(searchInputHasHeaderText).toBe(true);

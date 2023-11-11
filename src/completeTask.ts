@@ -206,6 +206,28 @@ export const completeTask = async (
           },
         },
         {
+          function: async (args: { elementId: string }) => {
+            return { elementCount: await getLocator(args.elementId).count() };
+          },
+          name: "locator_count",
+          description: "Returns the number of elements matching the locator.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
           function: async (args: { value: string; elementId: string }) => {
             await getLocator(args.elementId).fill(args.value);
 

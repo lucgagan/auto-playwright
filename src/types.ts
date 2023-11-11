@@ -4,8 +4,6 @@ export { type Page } from "@playwright/test";
 
 export type Test = TestType<any, any>;
 
-export type QueryStrategy = "css selector" | "tag name";
-
 export type StepOptions = {
   debug?: boolean;
   model?: string;

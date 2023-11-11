@@ -2,12 +2,7 @@ import { MAX_TASK_CHARS } from "./config";
 import { type Page, type Test, StepOptions } from "./types";
 import { completeTask } from "./completeTask";
 import { UnimplementedError } from "./errors";
-
-const getSnapshot = async (page: Page) => {
-  return {
-    dom: await page.content(),
-  };
-};
+import { getSnapshot } from "./getSnapshot";
 
 export const auto = async (
   task: string,

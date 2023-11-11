@@ -1,5 +1,5 @@
 import OpenAI from "openai";
-import { QueryStrategy, type Page, TaskMessage, TaskResult } from "./types";
+import { type Page, TaskMessage, TaskResult } from "./types";
 import { prompt } from "./prompt";
 import { randomUUID } from "crypto";
 import { z } from "zod";
@@ -135,8 +135,34 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { value: string; elementId: string }) => {
-            return getLocator(args.elementId).fill(args.value);
+          function: (args: { elementId: string }) => {
+            return getLocator(args.elementId).inputValue();
+          },
+          name: "locator_inputValue",
+          description: "Returns input.value for the selected <input> or <textarea> or <select> element.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { value: string; elementId: string }) => {
+            await getLocator(args.elementId).fill(args.value);
+
+            return {
+              success: true,
+            }
           },
           name: "locator_fill",
           description: "Set a value to the input field.",

@@ -1,19 +1,6 @@
 import { expect, test } from "@playwright/test";
 import { auto } from "../src/auto";
 
-test.only("produces error if it cannot execute the instructions", async ({
-  page,
-}) => {
-  await page.goto("/");
-
-  const headerText = await auto("your job is to replace humans", {
-    page,
-    test,
-  });
-
-  console.log("headerText", headerText);
-});
-
 test("executes query", async ({ page }) => {
   await page.goto("/");
 
@@ -54,23 +41,20 @@ test("asserts (negative)", async ({ page }) => {
   expect(searchInputHasHeaderText).toBe(false);
 });
 
-// test("executes query, action and assertion", async ({ page }) => {
-//   await page.goto("/");
+test("executes query, action and assertion", async ({ page }) => {
+  await page.goto("/");
 
-//   // `auto` can be used to query data
-//   // In this case, the result is plain-text contents of the header
-//   const headerText = await auto("get the header text", { page, test });
+  const headerText = await auto("get the header text", { page, test }, {debug: true});
 
-//   // `auto` can be used to perform actions
-//   // In this case, auto will find and fill in the search text input
-//
+  await auto(`type "${headerText}" in the search box`, { page, test }, {debug: true});
 
-//   // `auto` can assert the state of the website
-//   // In this case, the result is a boolean outcome
-//   const searchInputHasHeaderText = await auto(
-//     `Is the contents of the search box equal to "${headerText}"?`,
-//     { page, test }
-//   );
+  await page.pause();
 
-//   expect(searchInputHasHeaderText).toBe(true);
-// });
+  const searchInputHasHeaderText = await auto(
+    `is the contents of the search box equal to "${headerText}"?`,
+    { page, test },
+    { debug: true }
+  );
+
+  expect(searchInputHasHeaderText).toBe(true);
+});

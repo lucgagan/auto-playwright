@@ -162,7 +162,8 @@ export const completeTask = async (
             return await getLocator(args.elementId).boundingBox();
           },
           name: "locator_boundingBox",
-          description: "This method returns the bounding box of the element matching the locator, or null if the element is not visible. The bounding box is calculated relative to the main frame viewport - which is usually the same as the browser window. The returned object has x, y, width, and height properties.",
+          description:
+            "This method returns the bounding box of the element matching the locator, or null if the element is not visible. The bounding box is calculated relative to the main frame viewport - which is usually the same as the browser window. The returned object has x, y, width, and height properties.",
           parse: (args: string) => {
             return z
               .object({

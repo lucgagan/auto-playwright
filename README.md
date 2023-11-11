@@ -122,6 +122,7 @@ Certainly! Here's a rephrased version of the provided content, presented in a ma
 
 - `locator.blur`
 - `locator.boundingBox`
+- `locator.check`
 - `locator.clear`
 - `locator.click`
 - `locator.count`
@@ -130,6 +131,8 @@ Certainly! Here's a rephrased version of the provided content, presented in a ma
 - `locator.innerHTML`
 - `locator.innerText`
 - `locator.inputValue`
+- `locator.isChecked`
+- `locator.uncheck`
 - `page.goto`
 
 Adding new actions is easy: just update the `functions` in [`src/completeTask.ts`](src/completeTask.ts).

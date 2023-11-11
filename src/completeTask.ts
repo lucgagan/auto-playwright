@@ -204,6 +204,76 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            await getLocator(args.elementId).check();
+
+            return { success: true };
+          },
+          name: "locator_check",
+          description: "Ensure that checkbox or radio element is checked.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
+            await getLocator(args.elementId).uncheck();
+
+            return { success: true };
+          },
+          name: "locator_uncheck",
+          description: "Ensure that checkbox or radio element is unchecked.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
+            return { isChecked: await getLocator(args.elementId).isChecked() };
+          },
+          name: "locator_isChecked",
+          description: "Returns whether the element is checked.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             await getLocator(args.elementId).clear();
 
             return { success: true };

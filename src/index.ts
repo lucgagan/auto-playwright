@@ -1,2 +1,2 @@
 export { auto } from "./auto";
-export { UnimplementedError } from "./errors";
+export { AutoPlaywrightError } from "./errors";

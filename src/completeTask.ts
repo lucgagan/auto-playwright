@@ -158,6 +158,30 @@ export const completeTask = async (
           },
         },
         {
+          function: async (args: { elementId: string }) => {
+            await getLocator(args.elementId).click();
+
+            return { success: true };
+          },
+          name: "locator_click",
+          description: "Click an element.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
           function: async (args: { value: string; elementId: string }) => {
             await getLocator(args.elementId).fill(args.value);
 

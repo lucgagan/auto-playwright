@@ -19,6 +19,18 @@ test("executes action", async ({ page }) => {
   await expect(page.getByTestId("search-input")).toHaveValue("foo");
 });
 
+test("executes click", async ({ page }) => {
+  await page.goto("/");
+
+  await auto(
+    "Click the button until the counter value is equal to 2",
+    { page, test },
+    { debug: true }
+  );
+
+  await expect(page.getByTestId("current-count")).toHaveText("2");
+});
+
 test("asserts (positive)", async ({ page }) => {
   await page.goto("/");
 

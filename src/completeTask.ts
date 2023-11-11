@@ -162,8 +162,7 @@ export const completeTask = async (
             return await getLocator(args.elementId).blur();
           },
           name: "locator_blur",
-          description:
-            "Removes keyboard focus from the current element.",
+          description: "Removes keyboard focus from the current element.",
           parse: (args: string) => {
             return z
               .object({

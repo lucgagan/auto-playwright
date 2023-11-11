@@ -274,6 +274,28 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            return { isVisible: await getLocator(args.elementId).isVisible() };
+          },
+          name: "locator_isVisible",
+          description: "Returns whether the element is visible.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             await getLocator(args.elementId).clear();
 
             return { success: true };

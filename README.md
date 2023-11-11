@@ -120,6 +120,7 @@ Certainly! Here's a rephrased version of the provided content, presented in a ma
 
 ## Supported Playwright Actions
 
+- `locator.blur`
 - `locator.boundingBox`
 - `locator.clear`
 - `locator.click`

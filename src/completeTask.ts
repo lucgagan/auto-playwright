@@ -159,6 +159,29 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            return await getLocator(args.elementId).blur();
+          },
+          name: "locator_blur",
+          description:
+            "Removes keyboard focus from the current element.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             return await getLocator(args.elementId).boundingBox();
           },
           name: "locator_boundingBox",

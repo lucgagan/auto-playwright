@@ -29,9 +29,9 @@
       "main"
     ]
   },
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/index.d.ts",
   "name": "auto-playwright",
-  "main": "./dist/src/index.js",
+  "main": "./dist/index.js",
   "sideEffects": false,
   "description": "Automate Playwright tests using ChatGPT.",
   "repository": {
@@ -50,7 +50,7 @@
   },
   "scripts": {
     "start": "tsx ./tests/bin/startServer.ts",
-    "build": "tsc --noEmit false",
+    "build": "tsc --project tsconfig.build.json",
     "format": "prettier --write ./src",
     "lint": "prettier --check ./src && knip",
     "semantic-release": "semantic-release",

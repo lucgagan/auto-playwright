@@ -7,7 +7,6 @@
     "noImplicitReturns": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
-    "outDir": "dist",
     "strict": true,
     "target": "ES2022",
     "useUnknownInCatchVariables": false

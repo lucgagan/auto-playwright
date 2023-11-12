@@ -7,6 +7,8 @@ import sanitize from "sanitize-html";
  */
 export const sanitizeHtml = (subject: string) => {
   return sanitize(subject, {
+    // The default allowedTags list already includes _a lot_ of commonly used tags.
+    // https://www.npmjs.com/package/sanitize-html#default-options
     allowedTags: sanitize.defaults.allowedTags.concat([
       "button",
       "form",
@@ -15,6 +17,7 @@ export const sanitizeHtml = (subject: string) => {
       "select",
       "textarea",
     ]),
+    // Setting allowedAttributes to false will allow all attributes.
     allowedAttributes: false,
   });
 };

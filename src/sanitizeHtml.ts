@@ -15,6 +15,9 @@ export const sanitizeHtml = (subject: string) => {
   return sanitize(subject, {
     // The default allowedTags list already includes _a lot_ of commonly used tags.
     // https://www.npmjs.com/package/sanitize-html#default-options
+    //
+    // I don't see a need for this to be configurable at the moment,
+    // as it already covers all the layout tags, but we can revisit this if necessary.
     allowedTags: sanitize.defaults.allowedTags.concat([
       "button",
       "form",

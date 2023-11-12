@@ -132,6 +132,7 @@ Certainly! Here's a rephrased version of the provided content, presented in a ma
 - `locator.innerText`
 - `locator.inputValue`
 - `locator.isChecked`
+- `locator.isEnabled`
 - `locator.isVisible`
 - `locator.uncheck`
 - `page.goto`

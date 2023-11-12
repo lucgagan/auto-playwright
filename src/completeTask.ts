@@ -274,6 +274,28 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            return { isEnabled: await getLocator(args.elementId).isEnabled() };
+          },
+          name: "locator_isEnabled",
+          description: "Returns whether the element is enabled. Element is considered enabled unless it is a <button>, <select>, <input> or <textarea> with a disabled property.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             return { isVisible: await getLocator(args.elementId).isVisible() };
           },
           name: "locator_isVisible",

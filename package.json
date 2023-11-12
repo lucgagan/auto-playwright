@@ -28,9 +28,9 @@
       "main"
     ]
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/src/index.d.ts",
   "name": "auto-playwright",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "sideEffects": false,
   "description": "Automate Playwright tests using ChatGPT.",
   "repository": {

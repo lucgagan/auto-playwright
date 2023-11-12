@@ -39,8 +39,10 @@
     "url": "https://github.com/lucgagan/auto-playwright"
   },
   "devDependencies": {
+    "@playwright/test": "^1.39.0",
     "@types/node": "^20.2.5",
     "@types/sanitize-html": "^2.9.4",
+    "knip": "^2.41.0",
     "prettier": "^2.8.8",
     "semantic-release": "^21.0.2",
     "tsx": "^3.12.7",
@@ -50,7 +52,7 @@
     "start": "tsx ./tests/bin/startServer.ts",
     "build": "tsc --noEmit false",
     "format": "prettier --write ./src",
-    "lint": "prettier --check ./src",
+    "lint": "prettier --check ./src && knip",
     "semantic-release": "semantic-release",
     "test": "playwright test"
   },

@@ -3,6 +3,7 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "moduleResolution": "Node",
+    "module": "CommonJS",
     "noEmit": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,

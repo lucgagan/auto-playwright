@@ -135,6 +135,30 @@ export const completeTask = async (
           },
         },
         {
+          function: async (args: { elementId: string }) => {
+            return {
+              textContent: await getLocator(args.elementId).textContent(),
+            };
+          },
+          name: "locator_textContent",
+          description: "Returns the node.textContent.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
           function: (args: { elementId: string }) => {
             return getLocator(args.elementId).inputValue();
           },
@@ -274,10 +298,13 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
-            return { isEditable: await getLocator(args.elementId).isEditable() };
+            return {
+              isEditable: await getLocator(args.elementId).isEditable(),
+            };
           },
           name: "locator_isEditable",
-          description: "Returns whether the element is editable. Element is considered editable when it is enabled and does not have readonly property set.",
+          description:
+            "Returns whether the element is editable. Element is considered editable when it is enabled and does not have readonly property set.",
           parse: (args: string) => {
             return z
               .object({
@@ -299,7 +326,8 @@ export const completeTask = async (
             return { isEnabled: await getLocator(args.elementId).isEnabled() };
           },
           name: "locator_isEnabled",
-          description: "Returns whether the element is enabled. Element is considered enabled unless it is a <button>, <select>, <input> or <textarea> with a disabled property.",
+          description:
+            "Returns whether the element is enabled. Element is considered enabled unless it is a <button>, <select>, <input> or <textarea> with a disabled property.",
           parse: (args: string) => {
             return z
               .object({

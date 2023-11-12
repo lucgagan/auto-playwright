@@ -135,6 +135,7 @@ Certainly! Here's a rephrased version of the provided content, presented in a ma
 - `locator.isEditable`
 - `locator.isEnabled`
 - `locator.isVisible`
+- `locator.textContent`
 - `locator.uncheck`
 - `page.goto`
 

@@ -65,8 +65,15 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { attributeName: string; elementId: string }) => {
-            return getLocator(args.elementId).getAttribute(args.attributeName);
+          function: async (args: {
+            attributeName: string;
+            elementId: string;
+          }) => {
+            return {
+              attributeValue: await getLocator(args.elementId).getAttribute(
+                args.attributeName
+              ),
+            };
           },
           name: "locator_getAttribute",
           description: "Returns the matching element's attribute value.",
@@ -91,8 +98,8 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { elementId: string }) => {
-            return getLocator(args.elementId).innerHTML();
+          function: async (args: { elementId: string }) => {
+            return { innerHTML: await getLocator(args.elementId).innerHTML() };
           },
           name: "locator_innerHTML",
           description: "Returns the element.innerHTML.",
@@ -113,8 +120,8 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { elementId: string }) => {
-            return getLocator(args.elementId).innerText();
+          function: async (args: { elementId: string }) => {
+            return { innerText: await getLocator(args.elementId).innerText() };
           },
           name: "locator_innerText",
           description: "Returns the element.innerText.",
@@ -159,8 +166,10 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { elementId: string }) => {
-            return getLocator(args.elementId).inputValue();
+          function: async (args: { elementId: string }) => {
+            return {
+              inputValue: await getLocator(args.elementId).inputValue(),
+            };
           },
           name: "locator_inputValue",
           description:
@@ -183,7 +192,9 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
-            return await getLocator(args.elementId).blur();
+            await getLocator(args.elementId).blur();
+
+            return { success: true };
           },
           name: "locator_blur",
           description: "Removes keyboard focus from the current element.",
@@ -467,8 +478,10 @@ export const completeTask = async (
           },
         },
         {
-          function: (args: { url: string }) => {
-            return page.goto(args.url);
+          function: async (args: { url: string }) => {
+            return {
+              url: await page.goto(args.url),
+            };
           },
           name: "page_goto",
           description: "Set a value to the input field.",

@@ -22,11 +22,10 @@ test("executes action", async ({ page }) => {
 test("executes click", async ({ page }) => {
   await page.goto("/");
 
-  await auto(
-    "Click the button until the counter value is equal to 2",
-    { page, test },
-    { debug: true }
-  );
+  await auto("Click the button until the counter value is equal to 2", {
+    page,
+    test,
+  });
 
   await expect(page.getByTestId("current-count")).toHaveText("2");
 });

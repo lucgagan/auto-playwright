@@ -1,7 +1,6 @@
 {
   "dependencies": {
     "@hono/node-server": "^1.2.0",
-    "@playwright/test": "^1.39.0",
     "hono": "^3.9.2",
     "openai": "^4.17.3",
     "sanitize-html": "^2.11.0",
@@ -22,6 +21,9 @@
     "playwright",
     "test"
   ],
+  "peerDependencies": {
+    "@playwright/test": "^1.39.0"
+  },
   "release": {
     "branches": [
       "main"

@@ -274,6 +274,28 @@ export const completeTask = async (
         },
         {
           function: async (args: { elementId: string }) => {
+            return { isEditable: await getLocator(args.elementId).isEditable() };
+          },
+          name: "locator_isEditable",
+          description: "Returns whether the element is editable. Element is considered editable when it is enabled and does not have readonly property set.",
+          parse: (args: string) => {
+            return z
+              .object({
+                elementId: z.string(),
+              })
+              .parse(JSON.parse(args));
+          },
+          parameters: {
+            type: "object",
+            properties: {
+              elementId: {
+                type: "string",
+              },
+            },
+          },
+        },
+        {
+          function: async (args: { elementId: string }) => {
             return { isEnabled: await getLocator(args.elementId).isEnabled() };
           },
           name: "locator_isEnabled",

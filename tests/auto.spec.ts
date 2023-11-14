@@ -30,7 +30,7 @@ test("executes click", async ({ page }) => {
   await expect(page.getByTestId("current-count")).toHaveText("2");
 });
 
-test("asserts (positive)", async ({ page }) => {
+test("asserts (toBe)", async ({ page }) => {
   await page.goto("/");
 
   const searchInputHasHeaderText = await auto(
@@ -41,7 +41,7 @@ test("asserts (positive)", async ({ page }) => {
   expect(searchInputHasHeaderText).toBe(true);
 });
 
-test("asserts (negative)", async ({ page }) => {
+test("asserts (not.toBe)", async ({ page }) => {
   await page.goto("/");
 
   const searchInputHasHeaderText = await auto(

@@ -493,6 +493,66 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
       },
     },
     {
+      function: (args: {actual: string; expected: string}) => {
+        return {
+          actual: args.actual,
+          expected: args.expected,
+          success: args.actual === args.expected,
+        };
+      },
+      name: "expect_toBe",
+      description: "Asserts that the actual value is equal to the expected value.",
+      parse: (args: string) => {
+        return z
+          .object({
+            actual: z.string(),
+            expected: z.string(),
+          })
+          .parse(JSON.parse(args));
+      },
+      parameters: {
+        type: "object",
+        properties: {
+          actual: {
+            type: "string",
+          },
+          expected: {
+            type: "string",
+          },
+        },
+      },
+    },
+    {
+      function: (args: {actual: string; expected: string}) => {
+        return {
+          actual: args.actual,
+          expected: args.expected,
+          success: args.actual !== args.expected,
+        };
+      },
+      name: "expect_notToBe",
+      description: "Asserts that the actual value is not equal to the expected value.",
+      parse: (args: string) => {
+        return z
+          .object({
+            actual: z.string(),
+            expected: z.string(),
+          })
+          .parse(JSON.parse(args));
+      },
+      parameters: {
+        type: "object",
+        properties: {
+          actual: {
+            type: "string",
+          },
+          expected: {
+            type: "string",
+          },
+        },
+      },
+    },
+    {
       function: (args: { assertion: boolean }) => {
         return args;
       },

@@ -8,7 +8,7 @@ import { z } from "zod";
 
 export const createActions = (
   page: Page
-): (RunnableFunctionWithoutParse | RunnableFunctionWithParse<any>)[] => {
+): Record<string, RunnableFunctionWithoutParse | RunnableFunctionWithParse<any>> => {
   const locatorMap = new Map();
 
   const getLocator = (elementId: string) => {
@@ -21,8 +21,8 @@ export const createActions = (
     return locator;
   };
 
-  return [
-    {
+  return {
+    locateElement: {
       function: async (args: {
         attributeName: string;
         cssSelector: string;
@@ -56,7 +56,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_getAttribute: {
       function: async (args: { attributeName: string; elementId: string }) => {
         return {
           attributeValue: await getLocator(args.elementId).getAttribute(
@@ -86,7 +86,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_innerHTML: {
       function: async (args: { elementId: string }) => {
         return { innerHTML: await getLocator(args.elementId).innerHTML() };
       },
@@ -108,7 +108,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_innerText: {
       function: async (args: { elementId: string }) => {
         return { innerText: await getLocator(args.elementId).innerText() };
       },
@@ -130,7 +130,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_textContent: {
       function: async (args: { elementId: string }) => {
         return {
           textContent: await getLocator(args.elementId).textContent(),
@@ -154,7 +154,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_inputValue: {
       function: async (args: { elementId: string }) => {
         return {
           inputValue: await getLocator(args.elementId).inputValue(),
@@ -179,7 +179,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_blur: {
       function: async (args: { elementId: string }) => {
         await getLocator(args.elementId).blur();
 
@@ -203,7 +203,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_boundingBox: {
       function: async (args: { elementId: string }) => {
         return await getLocator(args.elementId).boundingBox();
       },
@@ -226,7 +226,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_check: {
       function: async (args: { elementId: string }) => {
         await getLocator(args.elementId).check();
 
@@ -250,7 +250,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_uncheck: {
       function: async (args: { elementId: string }) => {
         await getLocator(args.elementId).uncheck();
 
@@ -274,7 +274,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_isChecked: {
       function: async (args: { elementId: string }) => {
         return { isChecked: await getLocator(args.elementId).isChecked() };
       },
@@ -296,7 +296,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_isEditable: {
       function: async (args: { elementId: string }) => {
         return {
           isEditable: await getLocator(args.elementId).isEditable(),
@@ -321,7 +321,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_isEnabled: {
       function: async (args: { elementId: string }) => {
         return { isEnabled: await getLocator(args.elementId).isEnabled() };
       },
@@ -344,7 +344,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_isVisible: {
       function: async (args: { elementId: string }) => {
         return { isVisible: await getLocator(args.elementId).isVisible() };
       },
@@ -366,7 +366,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_clear: {
       function: async (args: { elementId: string }) => {
         await getLocator(args.elementId).clear();
 
@@ -390,7 +390,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_click: {
       function: async (args: { elementId: string }) => {
         await getLocator(args.elementId).click();
 
@@ -414,7 +414,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_count: {
       function: async (args: { elementId: string }) => {
         return { elementCount: await getLocator(args.elementId).count() };
       },
@@ -436,7 +436,7 @@ export const createActions = (
         },
       },
     },
-    {
+    locator_fill: {
       function: async (args: { value: string; elementId: string }) => {
         await getLocator(args.elementId).fill(args.value);
 
@@ -466,7 +466,7 @@ export const createActions = (
         },
       },
     },
-    {
+    page_goto: {
       function: async (args: { url: string }) => {
         return {
           url: await page.goto(args.url),
@@ -494,7 +494,7 @@ export const createActions = (
         },
       },
     },
-    {
+    expect_toBe: {
       function: (args: { actual: string; expected: string }) => {
         return {
           actual: args.actual,
@@ -525,7 +525,7 @@ export const createActions = (
         },
       },
     },
-    {
+    expect_notToBe: {
       function: (args: { actual: string; expected: string }) => {
         return {
           actual: args.actual,
@@ -556,7 +556,7 @@ export const createActions = (
         },
       },
     },
-    {
+    resultAssertion: {
       function: (args: { assertion: boolean }) => {
         return args;
       },
@@ -579,7 +579,7 @@ export const createActions = (
         },
       },
     },
-    {
+    resultQuery: {
       function: (args: { assertion: boolean }) => {
         return args;
       },
@@ -602,7 +602,7 @@ export const createActions = (
         },
       },
     },
-    {
+    resultAction: {
       function: () => {
         return null;
       },
@@ -614,7 +614,7 @@ export const createActions = (
         properties: {},
       },
     },
-    {
+    resultError: {
       function: (args: { errorMessage: string }) => {
         return {
           errorMessage: args.errorMessage,
@@ -639,5 +639,5 @@ export const createActions = (
         },
       },
     },
-  ];
+  };
 };

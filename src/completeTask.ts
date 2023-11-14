@@ -30,7 +30,7 @@ export const completeTask = async (
     .runFunctions({
       model: task.options?.model ?? "gpt-4-1106-preview",
       messages: [{ role: "user", content: prompt(task) }],
-      functions: actions,
+      functions: Object.values(actions),
     })
     .on("message", (message) => {
       if (debug) {

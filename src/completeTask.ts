@@ -6,7 +6,7 @@ import { createActions } from "./createActions";
 const defaultDebug = process.env.AUTO_PLAYWRIGHT_DEBUG === "true";
 
 type Snapshot = {
-  steps: {name: string, arguments: string}[];
+  steps: { name: string; arguments: string }[];
 };
 
 export const completeTask = async (
@@ -20,7 +20,7 @@ export const completeTask = async (
 
   const actions = createActions(page);
 
-  const debug = task.options?.debug?? defaultDebug;
+  const debug = task.options?.debug ?? defaultDebug;
 
   const snapshot: Snapshot = {
     steps: [],
@@ -37,7 +37,7 @@ export const completeTask = async (
         console.log("> message", message);
       }
 
-      if (message.role === 'assistant' && message.function_call) {
+      if (message.role === "assistant" && message.function_call) {
         snapshot.steps.push(message.function_call);
       }
 

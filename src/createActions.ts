@@ -1,9 +1,14 @@
 import { Page } from "@playwright/test";
 import { randomUUID } from "crypto";
-import { RunnableFunctionWithParse, RunnableFunctionWithoutParse } from "openai/lib/RunnableFunction";
+import {
+  RunnableFunctionWithParse,
+  RunnableFunctionWithoutParse,
+} from "openai/lib/RunnableFunction";
 import { z } from "zod";
 
-export const createActions = (page: Page): (RunnableFunctionWithoutParse | RunnableFunctionWithParse<any>)[] => {
+export const createActions = (
+  page: Page
+): (RunnableFunctionWithoutParse | RunnableFunctionWithParse<any>)[] => {
   const locatorMap = new Map();
 
   const getLocator = (elementId: string) => {
@@ -52,10 +57,7 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
       },
     },
     {
-      function: async (args: {
-        attributeName: string;
-        elementId: string;
-      }) => {
+      function: async (args: { attributeName: string; elementId: string }) => {
         return {
           attributeValue: await getLocator(args.elementId).getAttribute(
             args.attributeName
@@ -493,7 +495,7 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
       },
     },
     {
-      function: (args: {actual: string; expected: string}) => {
+      function: (args: { actual: string; expected: string }) => {
         return {
           actual: args.actual,
           expected: args.expected,
@@ -501,7 +503,8 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
         };
       },
       name: "expect_toBe",
-      description: "Asserts that the actual value is equal to the expected value.",
+      description:
+        "Asserts that the actual value is equal to the expected value.",
       parse: (args: string) => {
         return z
           .object({
@@ -523,7 +526,7 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
       },
     },
     {
-      function: (args: {actual: string; expected: string}) => {
+      function: (args: { actual: string; expected: string }) => {
         return {
           actual: args.actual,
           expected: args.expected,
@@ -531,7 +534,8 @@ export const createActions = (page: Page): (RunnableFunctionWithoutParse | Runna
         };
       },
       name: "expect_notToBe",
-      description: "Asserts that the actual value is not equal to the expected value.",
+      description:
+        "Asserts that the actual value is not equal to the expected value.",
       parse: (args: string) => {
         return z
           .object({

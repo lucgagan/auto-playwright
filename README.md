@@ -49,6 +49,14 @@ At minimum, the `auto` function requires a _plain text prompt_ and an _argument_
 auto("<your prompt>", { page, test });
 ```
 
+### Debug
+
+You may pass a `debug` attribute as the third parameter to the `auto` function. This will print the prompt and the commands executed by OpenAI.
+
+```ts
+await auto("get the header text", { page, test }, { debug: true });
+```
+
 ## Supported Browsers
 
 Every browser that Playwright supports.

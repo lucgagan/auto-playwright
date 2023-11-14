@@ -2,7 +2,6 @@ import { Page } from "@playwright/test";
 import { randomUUID } from "crypto";
 import {
   RunnableFunctionWithParse,
-  RunnableFunctionWithoutParse,
 } from "openai/lib/RunnableFunction";
 import { z } from "zod";
 

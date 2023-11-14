@@ -33,9 +33,9 @@ export const completeTask = async (
         {
           function: async (args: {
             attributeName: string;
-            cssLocator: string;
+            cssSelector: string;
           }) => {
-            const locator = await page.locator(args.cssLocator);
+            const locator = await page.locator(args.cssSelector);
 
             const elementId = randomUUID();
 
@@ -47,18 +47,18 @@ export const completeTask = async (
           },
           name: "locateElement",
           description:
-            "Locates element and returns elementId. This element ID can be used with other functions to perform actions on the element.",
+            "Locates element using a CSS selector and returns elementId. This element ID can be used with other functions to perform actions on the element.",
           parse: (args: string) => {
             return z
               .object({
-                cssLocator: z.string(),
+                cssSelector: z.string(),
               })
               .parse(JSON.parse(args));
           },
           parameters: {
             type: "object",
             properties: {
-              cssLocator: {
+              cssSelector: {
                 type: "string",
               },
             },

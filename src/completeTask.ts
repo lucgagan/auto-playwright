@@ -4,6 +4,8 @@ import { prompt } from "./prompt";
 import { randomUUID } from "crypto";
 import { z } from "zod";
 
+const defaultDebug = process.env.AUTO_PLAYWRIGHT_DEBUG === "true";
+
 export const completeTask = async (
   page: Page,
   task: TaskMessage
@@ -24,6 +26,8 @@ export const completeTask = async (
 
     return locator;
   };
+
+  const debug = task.options?.debug?? defaultDebug;
 
   const runner = openai.beta.chat.completions
     .runFunctions({
@@ -591,7 +595,7 @@ export const completeTask = async (
       ],
     })
     .on("message", (message) => {
-      if (task.options?.debug) {
+      if (debug) {
         console.log("> message", message);
       }
 
@@ -605,7 +609,7 @@ export const completeTask = async (
 
   const finalContent = await runner.finalContent();
 
-  if (task.options?.debug) {
+  if (debug) {
     console.log("> finalContent", finalContent);
   }
 
@@ -613,7 +617,7 @@ export const completeTask = async (
     throw new Error("Expected to have result");
   }
 
-  if (task.options?.debug) {
+  if (debug) {
     console.log("> lastFunctionResult", lastFunctionResult);
   }
 

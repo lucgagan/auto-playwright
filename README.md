@@ -57,6 +57,12 @@ You may pass a `debug` attribute as the third parameter to the `auto` function. 
 await auto("get the header text", { page, test }, { debug: true });
 ```
 
+You may also set environment variable `AUTO_PLAYWRIGHT_DEBUG=true`, which will enable debugging for all `auto` calls.
+
+```bash
+export AUTO_PLAYWRIGHT_DEBUG=true
+```
+
 ## Supported Browsers
 
 Every browser that Playwright supports.

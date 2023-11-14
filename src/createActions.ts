@@ -1,8 +1,6 @@
 import { Page } from "@playwright/test";
 import { randomUUID } from "crypto";
-import {
-  RunnableFunctionWithParse,
-} from "openai/lib/RunnableFunction";
+import { RunnableFunctionWithParse } from "openai/lib/RunnableFunction";
 import { z } from "zod";
 
 export const createActions = (

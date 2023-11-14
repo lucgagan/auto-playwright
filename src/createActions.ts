@@ -12,7 +12,7 @@ export const createActions = (
     const locator = locatorMap.get(elementId);
 
     if (!locator) {
-      throw new Error("Unknown elementId");
+      throw new Error('Unknown elementId "' + elementId + '"');
     }
 
     return locator;

@@ -8,7 +8,7 @@ import { z } from "zod";
 
 export const createActions = (
   page: Page
-): Record<string, RunnableFunctionWithoutParse | RunnableFunctionWithParse<any>> => {
+): Record<string, RunnableFunctionWithParse<any>> => {
   const locatorMap = new Map();
 
   const getLocator = (elementId: string) => {
@@ -23,10 +23,7 @@ export const createActions = (
 
   return {
     locateElement: {
-      function: async (args: {
-        attributeName: string;
-        cssSelector: string;
-      }) => {
+      function: async (args: { cssSelector: string }) => {
         const locator = await page.locator(args.cssSelector);
 
         const elementId = randomUUID();
@@ -605,6 +602,9 @@ export const createActions = (
     resultAction: {
       function: () => {
         return null;
+      },
+      parse: (args: string) => {
+        return z.object({}).parse(JSON.parse(args));
       },
       description:
         "This function is called at the end when the initial instructions asked to perform an action.",

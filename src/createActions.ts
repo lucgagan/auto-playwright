@@ -50,6 +50,37 @@ export const createActions = (
         },
       },
     },
+    locator_evaluate: {
+      function: async (args: { pageFunction: string; elementId: string }) => {
+        return {
+          result: await getLocator(args.elementId).evaluate(
+            args.pageFunction
+          ),
+        };
+      },
+      description: 'Execute JavaScript code in the page, taking the matching element as an argument.',
+      name: "locator_evaluate",
+      parameters: {
+        type: 'object',
+        properties: {
+          elementId: {
+            type: "string",
+          },
+          pageFunction: {
+            type: 'string',
+            description: 'Function to be evaluated in the page context, e.g. node => node.innerText',
+          },
+        },
+      },
+      parse: (args: string) => {
+        return z
+          .object({
+            elementId: z.string(),
+            pageFunction: z.string(),
+          })
+          .parse(JSON.parse(args));
+      }
+    },
     locator_getAttribute: {
       function: async (args: { attributeName: string; elementId: string }) => {
         return {

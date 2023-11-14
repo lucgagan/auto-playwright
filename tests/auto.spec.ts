@@ -9,6 +9,15 @@ test("executes query", async ({ page }) => {
   expect(headerText).toBe("Hello, Rayrun!");
 });
 
+test("executes query using locator_evaluate", async ({ page }) => {
+  await page.goto("/");
+
+  const headerText = await auto("get the first letter of the header text", { page, test });
+
+  // TODO assert that we are using locator_evaluate to get the first letter
+  expect(headerText).toBe("H");
+});
+
 test("executes action", async ({ page }) => {
   await page.goto("/");
 

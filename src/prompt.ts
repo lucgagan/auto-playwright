@@ -7,11 +7,7 @@ import { TaskMessage } from "./types";
  * @see https://openai.com/blog/function-calling-and-other-api-updates
  */
 export const prompt = (message: TaskMessage) => {
-  return `This is your task:
-
-"""
-${message.task}
-"""
+  return `This is your task: ${message.task}
 
 * Must always use locateElement function to find the element and reference it by elementId.
 

@@ -43,10 +43,34 @@ test("auto Playwright example", async ({ page }) => {
 
 ## Usage
 
-At minimum, the `auto` function requires a _plain text prompt_ and an _argument_ that contains your `page` and `test` objects.
+At minimum, the `auto` function requires a _plain text prompt_ and an _argument_ that contains your `page` object.
 
 ```ts
 auto("<your prompt>", { page, test });
+```
+
+### Browser automation
+
+Running without the `test` parameter:
+
+```ts
+import { auto } from "auto-playwright";
+
+(async () => {
+  const browser = await chromium.launch({ headless: true });
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  // Navigate to a website
+  await page.goto("https://www.example.com");
+
+  // `auto` can query data
+  // In this case, the result is plain-text contents of the header
+  const res = await auto("get the header text", { page });
+
+  // use res.query to get a query result.
+  console.log(res);
+  await page.close();
+})();
 ```
 
 ### Debug

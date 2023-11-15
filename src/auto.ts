@@ -29,6 +29,7 @@ export const auto = async (
       snapshot: await getSnapshot(page),
       options: options
         ? {
+            model: options.model ?? "gpt-4-1106-preview",
             debug: options.debug ?? false,
           }
         : undefined,

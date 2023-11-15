@@ -43,7 +43,7 @@ test("auto Playwright example", async ({ page }) => {
 
 ## Usage
 
-At minimum, the `auto` function requires a _plain text prompt_ and an _argument_ that contains your `page` object.
+At minimum, the `auto` function requires a _plain text prompt_ and an _argument_ that contains your `page` and `test` (optional) objects.
 
 ```ts
 auto("<your prompt>", { page, test });
@@ -54,6 +54,7 @@ auto("<your prompt>", { page, test });
 Running without the `test` parameter:
 
 ```ts
+import { chromium } from "playwright";
 import { auto } from "auto-playwright";
 
 (async () => {

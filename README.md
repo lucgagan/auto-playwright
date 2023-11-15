@@ -35,7 +35,7 @@ test("auto Playwright example", async ({ page }) => {
 
   // `auto` can assert the state of the website
   // In this case, the result is a boolean outcome
-  const searchInputHasHeaderText = await auto(`Is the contents of the search box equal to "${headerText}"?` { page, test });
+  const searchInputHasHeaderText = await auto(`Is the contents of the search box equal to "${headerText}"?`, { page, test });
 
   expect(searchInputHasHeaderText).toBe(true);
 });

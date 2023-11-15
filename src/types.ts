@@ -7,6 +7,7 @@ export type Test = TestType<any, any>;
 export type StepOptions = {
   debug?: boolean;
   model?: string;
+  openaiApiKey?: string;
 };
 
 export type TaskMessage = {

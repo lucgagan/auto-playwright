@@ -78,3 +78,11 @@ test("executes query, action and assertion", async ({ page }) => {
 
   expect(searchInputHasHeaderText).toBe(true);
 });
+
+test("runs without test parameter", async ({ page }) => {
+  await page.goto("/");
+
+  const headerText = await auto("get the header text", { page });
+
+  expect(headerText.query).toBe("Hello, Rayrun!");
+});

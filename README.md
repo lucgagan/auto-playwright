@@ -7,13 +7,13 @@ Run Playwright tests using AI.
 1. Install `auto-playwright` dependency:
 
 ```bash
-$ npm install auto-playwright -D
+npm install auto-playwright -D
 ```
 
-2. This package relies on talking with OpenAI (https://openai.com/). You must export the API token:
+2. This package relies on talking with OpenAI (https://openai.com/). You must export the API token as an enviroment variable or add it to your `.env` file:
 
 ```bash
-$ export export OPENAI_API_KEY='sk-..."
+export OPENAI_API_KEY='sk-..."
 ```
 
 3. Import and use the `auto` function:
@@ -35,7 +35,7 @@ test("auto Playwright example", async ({ page }) => {
 
   // `auto` can assert the state of the website
   // In this case, the result is a boolean outcome
-  const searchInputHasHeaderText = await auto(`Is the contents of the search box equal to "${headerText}"?` { page, test });
+  const searchInputHasHeaderText = await auto(`Is the contents of the search box equal to "${headerText}"?`, { page, test });
 
   expect(searchInputHasHeaderText).toBe(true);
 });

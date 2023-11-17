@@ -292,11 +292,9 @@ Naturally, the price will vary dramatically depending on the payload.
 
 The `auto` function uses [sanitize-html](https://www.npmjs.com/package/sanitize-html) to sanitize the HTML of the page before sending it to OpenAI. This is done to reduce cost and improve the quality of the generated text.
 
-## Addressing Controversy
+## ZeroStep
 
-It has come to my attention that a Reddit user (/r/tmcn43) has been actively discussing on various subreddit threads [^1](https://www.reddit.com/r/programming/comments/17tccsc/comment/k8w5o26/) [^2](https://www.reddit.com/r/programming/comments/17w3toy/comment/k9etf1x/) that my project shares a likeness to their work, going as far as calling it a clone of theirs. Their project ([ZeroStep](https://github.com/zerostep-ai/zerostep)) is a commercial software with similar features to Auto Playwright but uses a distinct set of technologies and a proprietary backend system.
-
-In response to these comments, I have engaged in a conversation on Reddit to clarify the distinctions between our projects. Despite this, the narrative of direct cloning persists, prompting me to maintain this explanatory note.
+The inspiration of this project is [ZeroStep](https://zerostep.io/). ZeroStep implements equivalent API in a more robust way using proprietary backend. Auto Playwright was developed seeking to understand the technology behind ZeroStep and to set a foundation for open-source version of their software. For production usage, I recommend using ZeroStep.
 
 Below is a comparative overview between Auto Playwright and ZeroStep:
 
@@ -318,7 +316,3 @@ Below is a comparative overview between Auto Playwright and ZeroStep:
 
 [^3]: Uses ZeroStep proprietary API.
 [^4]: Uses _some_ Playwright API, but predominantly relies on Chrome DevTools Protocol (CDP).
-
-I hold respect for the dedication put into ZeroStep. Nevertheless, it's clear from the comparison that, although there are superficial similarities, the underlying technologies and implementation of our projects are distinct. The overlap is mostly confined to a common function signature and terminology.
-
-I'd like to acknowledge that while I found inspiration in the conceptual framework of ZeroStep, at no point did I replicate or use any part of their codebase in the development of Auto Playwright. The inspiration drawn was in the spirit of advancing the field and building upon existing ideas, which is a common practice in technology and innovation. This approach helped in shaping some aspects of Auto Playwright, but it was developed independently and with a unique set of technologies and methodologies. I wish success to their project and hope to see them continue to develop it further.

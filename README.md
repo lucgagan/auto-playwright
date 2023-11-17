@@ -294,9 +294,11 @@ The `auto` function uses [sanitize-html](https://www.npmjs.com/package/sanitize-
 
 ## ZeroStep
 
-The inspiration of this project is [ZeroStep](https://zerostep.io/). ZeroStep implements equivalent API in a more robust way using proprietary backend. Auto Playwright was developed seeking to understand the technology behind ZeroStep and to set a foundation for open-source version of their software. For production usage, I recommend using ZeroStep.
+This project draws its inspiration from [ZeroStep](https://zerostep.io/). ZeroStep offers a similar API but with a more robust implementation through its proprietary backend. Auto Playwright was created with the aim of exploring the underlying technology of ZeroStep and establishing a basis for an open-source version of their software. For production environments, I suggest opting for ZeroStep.
 
-Below is a comparative overview between Auto Playwright and ZeroStep:
+Here's a side-by-side comparison of Auto Playwright and ZeroStep:
+
+Here is a side-by-side comparison between Auto Playwright and ZeroStep:
 
 |Criteria|Auto Playwright|ZeroStep|
 |---|---|---|
@@ -316,3 +318,19 @@ Below is a comparative overview between Auto Playwright and ZeroStep:
 
 [^3]: Uses ZeroStep proprietary API.
 [^4]: Uses _some_ Playwright API, but predominantly relies on Chrome DevTools Protocol (CDP).
+
+<details>
+  <summary>Zero Step License</summary>
+
+```
+MIT License
+
+Copyright (c) 2023 Reflect Software Inc
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+</details>

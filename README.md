@@ -294,7 +294,7 @@ The `auto` function uses [sanitize-html](https://www.npmjs.com/package/sanitize-
 
 ## ZeroStep
 
-This project draws its inspiration from [ZeroStep](https://zerostep.io/). ZeroStep offers a similar API but with a more robust implementation through its proprietary backend. Auto Playwright was created with the aim of exploring the underlying technology of ZeroStep and establishing a basis for an open-source version of their software. For production environments, I suggest opting for ZeroStep.
+This project draws its inspiration from [ZeroStep](https://zerostep.com/). ZeroStep offers a similar API but with a more robust implementation through its proprietary backend. Auto Playwright was created with the aim of exploring the underlying technology of ZeroStep and establishing a basis for an open-source version of their software. For production environments, I suggest opting for ZeroStep.
 
 Here's a side-by-side comparison of Auto Playwright and ZeroStep:
 

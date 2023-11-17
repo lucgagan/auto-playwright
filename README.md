@@ -148,8 +148,6 @@ console.log(`"There are 3 links" is a ${thereAreThreeLinks} statement`);
 
 ## Why use Auto Playwright?
 
-Certainly! Here's a rephrased version of the provided content, presented in a markdown table:
-
 | Aspect                         | Conventional Approach                                                               | Testing with Auto Playwright                                                                                                 |
 | ------------------------------ | ----------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | **Coupling with Markup**       | Strongly linked to the application's markup.                                        | Eliminates the use of selectors; actions are determined by the AI assistant at runtime.                                      |

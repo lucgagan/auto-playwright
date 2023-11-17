@@ -9,7 +9,7 @@ export const completeTask = async (
   page: Page,
   task: TaskMessage
 ): Promise<TaskResult> => {
-  const openai = new OpenAI();
+  const openai = new OpenAI({ apiKey: task.options?.openaiApiKey });
 
   let lastFunctionResult: null | { errorMessage: string } | { query: string } =
     null;

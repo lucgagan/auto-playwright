@@ -102,6 +102,8 @@ const options = {
   debug: boolean,
   // The OpenAI model (https://platform.openai.com/docs/models/overview)
   model: "gpt-4-1106-preview",
+  // The OpenAI API key
+  openaiApiKey: 'sk-...',
 };
 
 auto("<your prompt>", { page, test }, options);

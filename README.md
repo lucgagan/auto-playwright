@@ -298,8 +298,6 @@ This project draws its inspiration from [ZeroStep](https://zerostep.io/). ZeroSt
 
 Here's a side-by-side comparison of Auto Playwright and ZeroStep:
 
-Here is a side-by-side comparison between Auto Playwright and ZeroStep:
-
 |Criteria|Auto Playwright|ZeroStep|
 |---|---|---|
 |Uses OpenAI API|Yes|No[^3]|

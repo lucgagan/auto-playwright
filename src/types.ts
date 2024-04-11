@@ -8,6 +8,9 @@ export type StepOptions = {
   debug?: boolean;
   model?: string;
   openaiApiKey?: string;
+  openaiBaseUrl?: string;
+  openaiDefaultQuery?: {};
+  openaiDefaultHeaders?: {};
 };
 
 export type TaskMessage = {

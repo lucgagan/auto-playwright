@@ -59,6 +59,9 @@ async function runTask(
           model: options.model ?? "gpt-4-1106-preview",
           debug: options.debug ?? false,
           openaiApiKey: options.openaiApiKey,
+          openaiBaseUrl: options.openaiBaseUrl,
+          openaiDefaultQuery: options.openaiDefaultQuery,
+          openaiDefaultHeaders: options.openaiDefaultHeaders
         }
       : undefined,
   });

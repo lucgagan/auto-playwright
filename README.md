@@ -40,6 +40,45 @@ test("auto Playwright example", async ({ page }) => {
   expect(searchInputHasHeaderText).toBe(true);
 });
 ```
+### Setup with Azure OpenAI
+
+Include the StepOptions type with the values needed for connecting to Azure OpenAI.
+
+```ts
+import { test, expect } from "@playwright/test";
+import { auto } from "auto-playwright";
+import { StepOptions } from "../src/types";
+
+const apiKey = "apikey";
+const resource = "azure-resource-name";
+const model = "model-deployment-name";
+
+const options: StepOptions = {
+   model: model,
+   openaiApiKey: apiKey,
+   openaiBaseUrl: `https://${resource}.openai.azure.com/openai/deployments/${model}`,
+   openaiDefaultQuery: { 'api-version': "2023-07-01-preview" },
+   openaiDefaultHeaders: { 'api-key': apiKey }
+};
+
+test("auto Playwright example", async ({ page }) => {
+  await page.goto("/");
+
+  // `auto` can query data
+  // In this case, the result is plain-text contents of the header
+  const headerText = await auto("get the header text", { page, test }, options);
+
+  // `auto` can perform actions
+  // In this case, auto will find and fill in the search text input
+  await auto(`Type "${headerText}" in the search box`, { page, test }, options);
+
+  // `auto` can assert the state of the website
+  // In this case, the result is a boolean outcome
+  const searchInputHasHeaderText = await auto(`Is the contents of the search box equal to "${headerText}"?`, { page, test }, options);
+
+  expect(searchInputHasHeaderText).toBe(true);
+});
+```
 
 ## Usage
 

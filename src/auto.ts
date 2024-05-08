@@ -61,7 +61,7 @@ async function runTask(
           openaiApiKey: options.openaiApiKey,
           openaiBaseUrl: options.openaiBaseUrl,
           openaiDefaultQuery: options.openaiDefaultQuery,
-          openaiDefaultHeaders: options.openaiDefaultHeaders
+          openaiDefaultHeaders: options.openaiDefaultHeaders,
         }
       : undefined,
   });

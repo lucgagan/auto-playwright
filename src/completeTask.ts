@@ -13,7 +13,7 @@ export const completeTask = async (
     apiKey: task.options?.openaiApiKey,
     baseURL: task.options?.openaiBaseUrl,
     defaultQuery: task.options?.openaiDefaultQuery,
-    defaultHeaders: task.options?.openaiDefaultHeaders
+    defaultHeaders: task.options?.openaiDefaultHeaders,
   });
 
   let lastFunctionResult: null | { errorMessage: string } | { query: string } =

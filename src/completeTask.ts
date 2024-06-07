@@ -24,10 +24,13 @@ export const completeTask = async (
   const debug = task.options?.debug ?? defaultDebug;
 
   const runner = openai.beta.chat.completions
-    .runFunctions({
+    .runTools({
       model: task.options?.model ?? "gpt-4-1106-preview",
       messages: [{ role: "user", content: prompt(task) }],
-      functions: Object.values(actions),
+      tools: Object.values(actions).map((action) => ({
+        type: "function",
+        function: action,
+      })),
     })
     .on("message", (message) => {
       if (debug) {

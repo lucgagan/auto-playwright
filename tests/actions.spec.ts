@@ -11,7 +11,7 @@ test("finds element using a CSS locator and returns elementId", async ({
 
   const actions = createActions(page);
 
-  const result = await actions.locateElement.function(
+  const result = await actions.locateElement.function.function(
     {
       cssSelector: "h1",
     },

@@ -25,7 +25,7 @@ export const completeTask = async (
 
   const runner = openai.beta.chat.completions
     .runTools({
-      model: task.options?.model ?? "gpt-4o",
+      model: task.options?.model ?? "gpt-4-1106-preview",
       messages: [{ role: "user", content: prompt(task) }],
       tools: Object.values(actions).map((action) => ({
         type: "function",
@@ -39,11 +39,9 @@ export const completeTask = async (
 
       if (
         message.role === "assistant" &&
-        message.tool_calls &&
-        message.tool_calls.length > 0 &&
-        message.tool_calls[0].function.name.startsWith("result")
+        message.function_call?.name.startsWith("result")
       ) {
-        lastFunctionResult = JSON.parse(message.tool_calls[0].function.arguments);
+        lastFunctionResult = JSON.parse(message.function_call.arguments);
       }
     });
 

@@ -56,7 +56,7 @@ async function runTask(
     snapshot: await getSnapshot(page),
     options: options
       ? {
-          model: options.model ?? "gpt-4-1106-preview",
+          model: options.model ?? "gpt-4o",
           debug: options.debug ?? false,
           openaiApiKey: options.openaiApiKey,
           openaiBaseUrl: options.openaiBaseUrl,

@@ -1,5 +1,4 @@
-import sanitize from "sanitize-html";
-
+const sanitize = require('sanitize-html');
 /**
  * The reason for sanitization is because OpenAI does not need all of the HTML tags
  * to know how to interpret the website, e.g. it will not make a difference to AI if

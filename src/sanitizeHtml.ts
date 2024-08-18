@@ -1,4 +1,4 @@
-import sanitize from "sanitize-html";
+import * as sanitize from "sanitize-html";
 
 /**
  * The reason for sanitization is because OpenAI does not need all of the HTML tags

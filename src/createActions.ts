@@ -19,6 +19,52 @@ export const createActions = (
   };
 
   return {
+    locator_pressKey: {
+      function: async (args: { elementId: string; key: string }) => {
+          const { elementId, key } = args;
+          await getLocator(elementId).press(key);
+          return { success: true };
+      },
+      name: "locator_pressKey",
+      description: "Presses a key while focused on the specified element.",
+      parse: (args: string) => {
+          return z
+              .object({
+                  elementId: z.string(),
+                  key: z.string(),
+              })
+              .parse(JSON.parse(args));
+      },
+      parameters: {
+          type: "object",
+          properties: {
+              elementId: { type: "string" },
+              key: { type: "string", description: "The name of the key to press, e.g., 'Enter', 'ArrowUp', 'a'." },
+          },
+      },
+    },
+    page_pressKey: {
+      function: async (args: { elementId: string; key: string }) => {
+          const { key } = args;
+          await page.keyboard.press(key);
+          return { success: true };
+      },
+      name: "page_pressKey",
+      description: "Presses a key globally on the page.",
+      parse: (args: string) => {
+          return z
+              .object({
+                  key: z.string(),
+              })
+              .parse(JSON.parse(args));
+      },
+      parameters: {
+          type: "object",
+          properties: {
+              key: { type: "string", description: "The name of the key to press, e.g., 'Enter', 'ArrowDown', 'b'." },
+          },
+      },
+    },
     locateElement: {
       function: async (args: { cssSelector: string }) => {
         const locator = await page.locator(args.cssSelector);
